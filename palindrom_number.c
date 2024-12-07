@@ -32,7 +32,11 @@ bool isPalindrome(int x) {
     while (i < numlen)
     {
         if (tmp[i++] != tmp[numlen--])
+	{
+            free(tmp);
             return (0);
+	}
     }
+    free(tmp);
     return (1);
 }
