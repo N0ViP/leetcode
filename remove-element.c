@@ -1,25 +1,14 @@
 int removeElement(int* nums, int numsSize, int val) {
-    int swap = 0, count = 0;
-    int k = numsSize - 1;
-
-    if (numsSize == 1)
-    {
-        return (nums[0] != val);
-    }
-    for (int i = 0; i < numsSize; i++)
+    int k = numsSize, i;
+    for (i = 0; i < k; i++)
     {
         if (nums[i] == val)
         {
-            while (nums[k] == val && k)
-                k--;
-            if (i == k || (i - 1) == k)
-                break;
-            swap = nums[i];
-            nums[i] = nums[k];
-            nums[k] = swap;
-            k--;
+            while (i < k && nums[--k] == val)
+                ;
+            if (k != i)
+                nums[i] = nums[k];
         }
-        count++;
     }
-    return (count);
+    return (k);
 }
