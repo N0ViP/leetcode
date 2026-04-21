@@ -1,5 +1,6 @@
 int majorityElement(int* nums, int numsSize)
 {
+/*
     unsigned int res = 0;
     int bits[32] = {0};
 
@@ -22,6 +23,23 @@ int majorityElement(int* nums, int numsSize)
 
 	if (i != 0)
         	res <<= 1;
+    }
+    
+*/
+
+
+    int res = 0;
+
+    for (int i = 0, ctr = 0; i < numsSize; i++)
+    {
+        if (ctr == 0)
+        {
+            res = nums[i];
+        }
+        if (res == nums[i])
+            ctr++;
+        else
+            ctr--;
     }
     
     return (res);
